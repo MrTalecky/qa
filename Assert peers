@@ -1,0 +1,10 @@
+ var peersVs = jsonData.peers.vs
+ if ( peersVs >= 70 && peersVs <= 100 ){
+     pm.test("Peers 100-30", function () {
+     pm.expect(jsonData.peers.lower).to.eql(30);
+ })
+ }
+ else pm.test("lower is null", function () {
+     pm.expect(jsonData.peers.lower).to.be.null;
+ })
+ }
