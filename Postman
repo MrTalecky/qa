@@ -1,9 +1,9 @@
-//статус код
+
 pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
 });
 
-//объявляем константу
+
 const jsonData = pm.response.json();
 //тестим что данные в json имеют типы данных, и что сам ответ - json объект
 pm.test("Test data type of the response", () => {
@@ -17,22 +17,20 @@ pm.test("Test data type of the response", () => {
   pm.expect(jsonData.tokenType).to.be.a("string");
 });
 
-//тестим, что тело содержит такие слова
+
 pm.test("Body contains string",() => {
   pm.expect(pm.response.text()).to.include("id", "name", "type",);
 });
 
-//создали переменную, распарсили тело (там массив с названием content), взяли из массива 1-й объект, и в нем первый ключ - id)
-//создали переменную постман
+
 var jsonData1 = JSON.parse(responseBody);
 pm.environment.set("rideId", jsonData1.content[0].id);
 
 
 
-//проверили, что пустой json пришел
+
 pm.test("Body is empty", function () {
   pm.response.to.have.body("");
 });
 
 
-//
