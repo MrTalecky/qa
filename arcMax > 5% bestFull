@@ -1,0 +1,7 @@
+var arcMaxTest = jsonData.arcMaxDouble
+var bestFullTest = jsonData.bestFull
+var procent = bestFullTest / 100 * 5 + bestFullTest
+ 
+pm.test("arcMax > 5% bestFull", function () {
+    pm.expect(procent).to.eql(arcMaxTest);
+     })
